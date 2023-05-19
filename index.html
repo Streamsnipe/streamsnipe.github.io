@@ -6,32 +6,51 @@
 
      <style>
          
-     body, html {
+    body, html {
       height: 100%;
       margin: 0;
       padding: 0;
     }
-        
+
     .iframe-container {
-      max-width: 100%;
-      max-height: 100vh;
-      min-height: 100vh;
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
       overflow: hidden;
     }
 
     .iframe-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
     }
+         
   </style>
 </head>
 <body>    
     <div>
         <!-- Replace 'https://www.example.com/embedded_content' with the actual URL of your embedded content -->
         <div class="iframe-container">
-        <iframe src="https://gamma.app/embed/rbjym4ejq52nzev" allow="fullscreen" title="NH: Fame And Glory "></iframe>
+        <iframe id="embedded-frame" src="https://gamma.app/embed/rbjym4ejq52nzev" allow="fullscreen" title="NH: Fame And Glory "></iframe>
         </div>
     </div>
+    
+      <script>
+    window.addEventListener("DOMContentLoaded", function() {
+      var frame = document.getElementById("embedded-frame");
+      frame.style.height = window.innerHeight + "px";
+    });
+
+    window.addEventListener("resize", function() {
+      var frame = document.getElementById("embedded-frame");
+      frame.style.height = window.innerHeight + "px";
+    });
+  </script>
+    
+    
 </body>
 </html>
